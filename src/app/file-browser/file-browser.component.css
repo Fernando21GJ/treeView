@@ -1,0 +1,50 @@
+/* file-browser.component.css */
+.file-browser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 16px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .search-input {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .file-content {
+    display: flex; /* Aplicar flexbox para el diseño en fila (horizontal) */
+    flex: 1; /* Usar todo el espacio disponible */
+  }
+  
+  .file-list {
+    flex: 1; /* El file-list ocupará el mismo ancho que el file-preview */
+    padding: 16px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+  }
+  
+  .file-preview {
+    flex: 1; /* El file-preview ocupará el mismo ancho que el file-list */
+    padding: 16px;
+  }
+  
+ 
+  
+  /* Styles for clearing the search input */
+  mat-form-field ::ng-deep .mat-clear-button {
+    display: none;
+  }
+  
+  .actions {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+  }

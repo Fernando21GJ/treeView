@@ -1,0 +1,51 @@
+<!-- file-browser.component.html -->
+<div class="file-browser">
+  <div class="search-bar">
+    <div class="search-input">
+      <mat-form-field>
+        <input matInput placeholder="Buscar">
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <div class="file-content">
+    <div class="file-list">
+      <mat-list>
+        <mat-list-item *ngFor="let item of fileList">
+          <mat-icon mat-list-icon>{{ item.isDirectory ? 'folder' : 'description' }}</mat-icon>
+          <h4 mat-line (click)="onItemClick(item)">
+            {{ item.name }}
+        
+          </h4>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="file-preview">
+      <div *ngIf="selectedItem">
+        <h2>{{ selectedItem.name }}</h2>
+        <p>
+          <mat-icon *ngIf="selectedItem.isDirectory">folder_open</mat-icon>
+          {{ selectedItem.description }}
+        </p>
+        <div *ngIf="selectedItem.children">
+          <h3>Contents:</h3>
+          <ul>
+            <li *ngFor="let child of selectedItem.children">
+              <mat-icon>{{ child.isDirectory ? 'folder' : 'description' }}</mat-icon>
+              {{ child.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <mat-card>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="onOkClick()">Ok</button>
+        <button mat-button color="warn" (click)="onCancelClick()">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
